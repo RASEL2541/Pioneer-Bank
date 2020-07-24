@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pioneer Bank</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="Login-area">
+        <h1 class="text-center">Welcome to Pioneer Bank</h1>
+        <div class="submit-area">
+            <h4>Login</h4>
+            <input type="Email" class="form-control" placeholder="Email">
+            <br>
+            <input type="password" class="form-control" placeholder="password">
+            <br>  
+            <button id="Login" class="btn btn-success">Enter</button>
+        </div> 
+    </div>
+    <div id="transaction-area">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="Deposit status">
+                    <h5>Deposit</h5>
+                <h2>$<span id="currentDeposit">00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+              <div class="Withdrow status">
+                <h5>Withdrow</h5>
+                <h2>$00</h2>
+              </div>
+            </div>
+            <div class="col-md-4"> 
+              <div class="Blance status">
+                <h5>Blance</h5>
+                <h2>$<span id="currentBalance">1280</span></h2>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="submit-area">
+                <h4>Deposit</h4>
+                <input id="depositAmount" type="text" class="form-control"placeholder="$amout you vasit to deposit withdow">
+                <br>
+                <button id="addDeposit" class="btn btn-success">Deposit</button>
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div class="submit-area">
+                    <h4>Withdrow</h4>
+                    <input type="text" class="form-control"placeholder="$ amount you vasit to deposit withdow">
+                    <br>
+                    <button class="btn btn-success">Withdrow</button>
+                </div>
+   
+            </div>
+        </div>
+    </div>
+    <script>
+        //login button even henlar
+        const LoginBtn = document.getElementById("Login");
+        LoginBtn.addEventListener("click", function(){
+            const LoginArea = document.getElementById("Login-area");
+            LoginArea.style.display = "none";
+            const transactionArea = document.getElementById("transaction-area")
+            transactionArea.style.display = "block";
+        })
+        //deposit button even henlar
+        const depositBtn = document.getElementById("addDeposit");
+          depositBtn.addEventListener("click", function(){
+           const depositAmount = document.getElementById("depositAmount").value;
+           const depositNumber = parseFloat(dipositAmount);
+
+           const currentDeposit = document.getElementById("currentDeposit").innerText;
+           const currentDepositNumber = parseFloat(currentDeposit);
+           const totalDeposit = depositNumber + currentDepositNumber;
+           
+           document.getElementById("currentDeposit"),innerText = totalDeposit;
+
+            const currentBalance =document.getElementById("currentBalance").innerText;
+            const currentBalanceNumber = par(currentDepositNumber);
+            const totalBlance = depositNumber + currentBalanceNumber;
+            document.getElementById("currentBalance").innerText = totalBlance;
+
+           document.getElementById("depositAmount").value ="";
+          })
+        
+        
+        
+    
+    </script>
+</body>
+</html>
